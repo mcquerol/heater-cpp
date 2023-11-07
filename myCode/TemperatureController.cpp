@@ -1,31 +1,34 @@
+// TemperatureController.cpp
 #include "TemperatureController.h"
 
-/**
- * @file TemperatureController.cpp
- * @brief Implementation file for the TemperatureController class.
- */
+TemperatureController::TemperatureController(TemperatureSensor& tempSensor, Thermostat& thermostat, HeatingElement& heatingElement, Valve& valve, Display& display)
+    : temperatureSensor(tempSensor), thermostat(thermostat), heatingElement(heatingElement), valve(valve), display(display) {
+    // Initialization and configuration...
+}
 
-/**
- * @brief Constructor for TemperatureController.
- * @param sensor Reference to the temperature sensor.
- * @param thermostat Reference to the thermostat.
- * @param heater Reference to the heater.
- */
-TemperatureController::TemperatureController(TemperatureSensor& sensor, Thermostat& thermostat, Heater& heater)
-    : temperatureSensor(sensor), thermostat(thermostat), heater(heater) {}
-
-/**
- * @brief Adjusts the temperature based on the thermostat settings.
- */
-void TemperatureController::adjustTemperature() {
+void TemperatureController::adjustTemperature()
+{
+    // Implementation...
     float currentTemp = temperatureSensor.getTemperature();
     float desiredTemp = thermostat.getDesiredTemperature();
 
     // Adjust temperature based on the desired temperature and current conditions
-    // Example logic: If currentTemp < desiredTemp, turn on the heater; otherwise, turn it off
+    // Example logic: If currentTemp < desiredTemp, turn on the heating element; otherwise, turn it off
     if (currentTemp < desiredTemp) {
-        heater.turnOn();
+        heatingElement.turnOn();
+        valve.open();
+        thermostat.setDesiredTemperature(currentTemp + 1.0);
     } else {
-        heater.turnOff();
+        heatingElement.turnOff();
+        valve.close();
+        thermostat.setDesiredTemperature(currentTemp - 1.0);
     }
+
+    // Show current and desired temperatures on the display
+    display.showTemperature(currentTemp, desiredTemp);
+}
+
+TemperatureController::~TemperatureController()
+{
+    // Cleanup, if needed...
 }

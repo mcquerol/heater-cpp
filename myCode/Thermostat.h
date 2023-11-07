@@ -1,15 +1,23 @@
+// Thermostat.h
 #ifndef THERMOSTAT_H
 #define THERMOSTAT_H
 
 /**
- * @class Thermostat
- * @brief Represents the thermostat component of the heating controller.
+ * @brief Manages the desired temperature in the system.
  */
 class Thermostat {
+private:
+    float desiredTemperature = 0.0;
+
 public:
     /**
-     * @brief Retrieves the desired temperature setting.
-     * @return The desired temperature setting.
+     * @brief Constructor for the Thermostat class.
+     */
+    Thermostat();
+
+    /**
+     * @brief Gets the desired temperature.
+     * @return The desired temperature.
      */
     float getDesiredTemperature() const;
 
@@ -19,8 +27,10 @@ public:
      */
     void setDesiredTemperature(float newTemperature);
 
-private:
-    float desiredTemperature; /**< The desired temperature setting. */
+    /**
+     * @brief Destructor for the Thermostat class.
+     */
+    ~Thermostat();
 };
 
 #endif // THERMOSTAT_H

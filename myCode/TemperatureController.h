@@ -1,33 +1,44 @@
+// TemperatureController.h
 #ifndef TEMPERATURE_CONTROLLER_H
 #define TEMPERATURE_CONTROLLER_H
 
 #include "TemperatureSensor.h"
 #include "Thermostat.h"
-#include "Heater.h"
+#include "HeatingElement.h"  // Include the header for HeatingElement
+#include "Valve.h"
+#include "Display.h"
 
 /**
- * @class TemperatureController
- * @brief Represents the temperature controller component of the heating system.
+ * @brief Controls the temperature and manages the heating system.
  */
 class TemperatureController {
+private:
+    TemperatureSensor& temperatureSensor;
+    Thermostat& thermostat;
+    HeatingElement& heatingElement;  // Add the reference for HeatingElement
+    Valve& valve;
+    Display& display;
+
 public:
     /**
-     * @brief Constructor for TemperatureController.
-     * @param sensor Reference to the temperature sensor.
+     * @brief Constructor for the TemperatureController class.
+     * @param tempSensor Reference to the temperature sensor.
      * @param thermostat Reference to the thermostat.
-     * @param heater Reference to the heater.
+     * @param heatingElement Reference to the heating element.
+     * @param valve Reference to the valve.
+     * @param display Reference to the display.
      */
-    TemperatureController(TemperatureSensor& sensor, Thermostat& thermostat, Heater& heater);
+    TemperatureController(TemperatureSensor& tempSensor, Thermostat& thermostat, HeatingElement& heatingElement, Valve& valve, Display& display);
 
     /**
-     * @brief Adjusts the temperature based on the thermostat settings.
+     * @brief Adjusts the temperature based on the desired temperature and current conditions.
      */
     void adjustTemperature();
 
-private:
-    TemperatureSensor& temperatureSensor; /**< Reference to the temperature sensor. */
-    Thermostat& thermostat;               /**< Reference to the thermostat. */
-    Heater& heater;                       /**< Reference to the heater. */
+    /**
+     * @brief Destructor for the TemperatureController class.
+     */
+    ~TemperatureController();
 };
 
 #endif // TEMPERATURE_CONTROLLER_H
