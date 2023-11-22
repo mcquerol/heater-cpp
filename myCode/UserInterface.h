@@ -14,6 +14,12 @@ public:
     float getUserInput() const;
 
     /**
+     * @brief Sets user input for desired temperature.
+     * @param input The user input for desired temperature.
+     */
+    void setUserInput(float input);
+
+    /**
      * @brief Displays current and desired temperatures.
      * @param currentTemp The current temperature.
      * @param desiredTemp The desired temperature.

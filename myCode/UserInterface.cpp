@@ -9,8 +9,18 @@
  * @brief Retrieves user input for desired temperature.
  * @return User input for desired temperature.
  */
-float UserInterface::getUserInput() const {
+float UserInterface::getUserInput() const
+{
     return userInput;
+}
+
+/**
+ * @brief Sets user input for desired temperature.
+ * @param input The user input for desired temperature.
+ */
+void UserInterface::setUserInput(float input)
+{
+    userInput = input;
 }
 
 /**
@@ -18,6 +28,7 @@ float UserInterface::getUserInput() const {
  * @param currentTemp The current temperature.
  * @param desiredTemp The desired temperature.
  */
-void UserInterface::displayTemperature(float currentTemp, float desiredTemp) const {
+void UserInterface::displayTemperature(float currentTemp, float desiredTemp) const
+{
     // Implementation to display temperatures
 }
