@@ -1,11 +1,11 @@
-#ifndef HEATER_H
-#define HEATER_H
+#ifndef HEATINGELEMENT_H
+#define HEATINGELEMENT_H
 
 /**
  * @class Heater
  * @brief Represents the heater component of the heating controller.
  */
-class Heater {
+class HeatingElement {
 public:
     /**
      * @brief Activates the heating element.

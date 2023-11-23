@@ -1,4 +1,4 @@
-#include "Heater.h"
+#include "HeatingElement.h"
 
 /**
  * @file Heater.cpp
@@ -8,7 +8,7 @@
 /**
  * @brief Activates the heating element.
  */
-void Heater::turnOn()
+void HeatingElement::turnOn()
 {
     //turn on heater
 }
@@ -16,7 +16,7 @@ void Heater::turnOn()
 /**
  * @brief Deactivates the heating element.
  */
-void Heater::turnOff()
+void HeatingElement::turnOff()
 {
     //turn off heater
 }
