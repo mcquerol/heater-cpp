@@ -8,13 +8,15 @@
 /**
  * @brief Activates the heating element.
  */
-void Heater::turnOn() {
-    heatingStatus = true;
+void Heater::turnOn()
+{
+    //turn on heater
 }
 
 /**
  * @brief Deactivates the heating element.
  */
-void Heater::turnOff() {
-    heatingStatus = false;
+void Heater::turnOff()
+{
+    //turn off heater
 }

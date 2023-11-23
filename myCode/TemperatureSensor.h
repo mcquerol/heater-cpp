@@ -7,11 +7,19 @@
  */
 class TemperatureSensor {
 public:
+
+	/**
+	 * @brief Empty constructor for the TemepratureSensor class, sets currentTemperature = 0.0;
+	 *
+	 */
+	TemperatureSensor();
+
     /**
      * @brief Retrieves the current temperature.
      * @return The current temperature.
      */
     float getTemperature() const;
+
 
 private:
     float currentTemperature; /**< The current temperature. */

@@ -9,12 +9,12 @@
  * @brief Activates the power supply.
  */
 void PowerSupply::turnOn() {
-    powerStatus = true;
+    //turn on heater
 }
 
 /**
  * @brief Deactivates the power supply.
  */
 void PowerSupply::turnOff() {
-    powerStatus = false;
+    //turn off heater
 }

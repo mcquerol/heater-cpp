@@ -11,21 +11,33 @@
  * @param thermostat Reference to the thermostat.
  * @param heater Reference to the heater.
  */
-TemperatureController::TemperatureController(TemperatureSensor& sensor, Thermostat& thermostat, Heater& heater)
-    : temperatureSensor(sensor), thermostat(thermostat), heater(heater) {}
+TemperatureController::TemperatureController(TemperatureSensor& tempSensor, Thermostat& thermostat, Heater& heater, PowerSupply& powerSupply)
+    : temperatureSensor(tempSensor), thermostat(thermostat), heater(heater), powerSupply(powerSupply)
+{
+
+}
 
 /**
  * @brief Adjusts the temperature based on the thermostat settings.
  */
-void TemperatureController::adjustTemperature() {
+void TemperatureController::adjustTemperature()
+{
     float currentTemp = temperatureSensor.getTemperature();
     float desiredTemp = thermostat.getDesiredTemperature();
 
     // Adjust temperature based on the desired temperature and current conditions
-    // Example logic: If currentTemp < desiredTemp, turn on the heater; otherwise, turn it off
-    if (currentTemp < desiredTemp) {
+    // Example logic: if currentTemp < desiredTemp, turn on the heater; otherwise, turn it off
+    if (currentTemp <= desiredTemp) {
         heater.turnOn();
     } else {
         heater.turnOff();
+    }
+
+    // Perform actions related to the power supply
+    // Example logic: if desired temperature has been reached, turn of the power
+    if (currentTemp >= desiredTemp) {
+        powerSupply.turnOff();
+    } else {
+        powerSupply.turnOn();
     }
 }

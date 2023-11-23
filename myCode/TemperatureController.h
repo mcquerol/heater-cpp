@@ -4,6 +4,8 @@
 #include "TemperatureSensor.h"
 #include "Thermostat.h"
 #include "Heater.h"
+#include "PowerSupply.h"
+
 
 /**
  * @class TemperatureController
@@ -17,7 +19,7 @@ public:
      * @param thermostat Reference to the thermostat.
      * @param heater Reference to the heater.
      */
-    TemperatureController(TemperatureSensor& sensor, Thermostat& thermostat, Heater& heater);
+	TemperatureController(TemperatureSensor& tempSensor, Thermostat& thermostat, Heater& heater, PowerSupply& powerSupply);
 
     /**
      * @brief Adjusts the temperature based on the thermostat settings.
@@ -28,6 +30,8 @@ private:
     TemperatureSensor& temperatureSensor; /**< Reference to the temperature sensor. */
     Thermostat& thermostat;               /**< Reference to the thermostat. */
     Heater& heater;                       /**< Reference to the heater. */
+    PowerSupply& powerSupply;			  /**< Reference to the power supply. */
+
 };
 
 #endif // TEMPERATURE_CONTROLLER_H

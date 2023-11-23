@@ -19,8 +19,11 @@ public:
      */
     void setDesiredTemperature(float newTemperature);
 
+
 private:
     float desiredTemperature; /**< The desired temperature setting. */
+
+
 };
 
 #endif // THERMOSTAT_H
