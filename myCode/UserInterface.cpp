@@ -1,5 +1,5 @@
 #include "UserInterface.h"
-
+#include <iostream>
 /**
  * @file UserInterface.cpp
  * @brief Implementation file for the UserInterface class.
@@ -30,5 +30,5 @@ void UserInterface::setUserInput(float input)
  */
 void UserInterface::displayTemperature(float currentTemp, float desiredTemp) const
 {
-    // Implementation to display temperatures
+    //output current and desired temperatures
 }
